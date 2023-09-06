@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  background-color: #9ad0f0;
+  display: flex;
+  width: 1440px;
+  height: 900px;
+  padding: 215px 490px 214px 490px;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  width: 460px;
+  height: 623px;
+  flex-shrink: 0;
+}
+
+.grid-container-square {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+  grid-gap: 10px; /* Espacement entre les carrés */
+  width: 490px;
+  margin: 139px -490px;
+}
+
+.square {
+  width: 140px;
+  height: 140px;
+  border-radius: 15px;
+  background: var(--semi-dark-navy, #1F3641);
+  box-shadow: 0px -8px 0px 0px #10212A inset;
+}
+
+/* Ajoutez une classe pour les rectangles contenant le texte */
+.rectangle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px; /* Espacement entre les carrés et les rectangles */
+}
+
+.xRectangle,
+.tiesRectangle,
+.oRectangle {
+ background: var(--semi-dark-navy, #1F3641);
+  box-shadow: 0px -8px 0px 0px #10212A inset;
+  width: 140px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  text-align: center; /* Centrer le texte à l'intérieur des rectangles */
+  flex-direction: row;
+}
+
+.text-style {
+  color: var(--Dark-Navy, #44a1d8);
+  font-feature-settings: 'clig' off, 'liga' off;
+  /* Heading (Medium) */
+  font-family: Outfit;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
