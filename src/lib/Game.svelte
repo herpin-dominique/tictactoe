@@ -2,7 +2,8 @@
   import logo from "$assets/images/logo.svg";
   import cross from "$assets/images/icon-x.svg";
   import circle from "$assets/images/icon-o.svg";
-
+  import iconRestart from "$assets/images/icon-restart.svg";
+  import turnRectangle from "$assets/images/Rectangle.svg";
   export let mode = "solo";
 
   let buttons = new Array(9).fill(null);
@@ -63,6 +64,9 @@
 </script>
 
 <img src={logo} alt="logo" />
+<img src={turnRectangle} alt="rectangle turn" />
+<img src={iconRestart} alt="restart" />
+<img src="" alt="" />
 <p>mode: {mode}</p>
 {#if !result}
   <div class="tictac">
@@ -91,20 +95,20 @@
   <div class="rectangle">
     <div class="player-info">
       <span class="player-text">X (YOU)</span>
-      <div class="score">Score: {playerXScore}</div>
+      <div class="score">{playerXScore}</div>
     </div>
   </div>
 
   <div class="rectangle">
-    <span class="player-text">TIES</span>
-    <div class="score">{playerXScore}</div>
-    <div class="score">Score: {playerDScore}</div>
+    <div class="player-info">
+      <span class="player-text">TIES</span>
+      <div class="score">{playerDScore}</div>
+    </div>
   </div>
-
   <div class="rectangle">
     <div class="player-info">
       <span class="player-text">O (CPU)</span>
-      <div class="score">Score: {playerOScore}</div>
+      <div class="score">{playerOScore}</div>
     </div>
   </div>
 </div>
@@ -154,16 +158,24 @@
 
   /* Styles individuels pour chaque rectangle */
   .rectangle:nth-child(1) {
-    background: var(--Light-Blue, #31c3bd);
+    background-color: #31c3bd;
     margin-left: -10px;
   }
 
   .rectangle:nth-child(2) {
-    background: var(--Silver, #a8bfc9);
+    background-color: #a8bfc9;
   }
 
   .rectangle:nth-child(3) {
-    background: var(--Light-Yellow, #f2b137);
+    background-color: #f2b137;
     margin-right: -10px;
+  }
+  span {
+    font-weight: 500;
+  }
+  .score {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
   }
 </style>
