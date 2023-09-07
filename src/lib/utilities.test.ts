@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { checkIsFull, type Board, checkBoard } from "./utilities";
+import { initializeGame } from "./utilities";
 
 describe("tic tac toe", () => {
   it("should true the board is ended", () => {
@@ -64,5 +65,18 @@ describe("tic tac toe", () => {
   it("should return O as Winner \\", () => {
     const board: Board = ["O", "X", "O", "O", "O", "X", "X", "X", "O"];
     expect(checkBoard(board)).toBe("O");
+  });
+});
+
+describe("Initialisation du jeu", () => {
+  it("Le tableau devrait être vide et le joueur X devrait commencer", () => {
+    // Appelez la fonction d'initialisation du jeu
+    const { board, currentPlayer } = initializeGame();
+
+    // Verifier que le tableau est vide
+    expect(board).toEqual([" ", " ", " ", " ", " ", " ", " ", " ", " "]);
+
+    // Vérifier que le joueur actuel est X
+    expect(currentPlayer).toBe("X");
   });
 });

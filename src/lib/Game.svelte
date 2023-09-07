@@ -1,9 +1,9 @@
 <script lang="ts">
-  import logo from "$assets/images/logo.svg";
   import cross from "$assets/images/icon-x.svg";
   import circle from "$assets/images/icon-o.svg";
-  import iconRestart from "$assets/images/icon-restart.svg";
-  import turnRectangle from "$assets/images/Rectangle.svg";
+
+  import Header from "./game/Header.svelte";
+
   export let mode = "solo";
 
   let buttons = new Array(9).fill(null);
@@ -12,6 +12,7 @@
   let playerXScore = 0; // Score du joueur X
   let playerOScore = 0; // Score de l'ordinateur O
   let playerDScore = 0;
+  let turnText = "X's turn";
 
   const winCombinations = [
     [0, 1, 2],
@@ -28,11 +29,11 @@
       buttons[i] = turn;
       buttons = [...buttons];
       turn = turn === "X" ? "O" : "X";
+      updateTurnText();
+      checkWinner();
       if (!buttons.includes(null)) {
         result = "Match Draw";
         playerDScore++;
-      } else {
-        checkWinner();
       }
     }
   }
@@ -61,11 +62,17 @@
     result = null;
     turn = "X";
   }
+  function updateTurnText() {
+    if (turn === "X") {
+      turnText = "X  TURN";
+    } else {
+      turnText = "O TURN";
+    }
+  }
 </script>
 
-<img src={logo} alt="logo" />
-<img src={turnRectangle} alt="rectangle turn" />
-<img src={iconRestart} alt="restart" />
+<Header {turnText} {restart} />
+
 <img src="" alt="" />
 <p>mode: {mode}</p>
 {#if !result}

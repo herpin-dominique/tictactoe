@@ -42,3 +42,10 @@ export function checkIsFull(board: Board) {
    */
   return board.indexOf(" ") === -1;
 }
+
+export function initializeGame() {
+  const board = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+  const currentPlayer = "X";
+
+  return { board, currentPlayer };
+}
