@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(pnpm install:*)",
-      "Bash(pnpm info:*)"
+      "Bash(pnpm info:*)",
+      "WebSearch",
+      "Bash(pnpm run *)",
+      "Bash(xargs -I{} echo {})",
+      "Bash(git show *)",
+      "Bash(cp package.json /tmp/package.json.new)",
+      "Bash(cp pnpm-lock.yaml /tmp/pnpm-lock.yaml.new)",
+      "Bash(git checkout *)",
+      "Bash(cp /tmp/package.json.new package.json)",
+      "Bash(cp /tmp/pnpm-lock.yaml.new pnpm-lock.yaml)"
     ]
   }
 }

@@ -13,6 +13,9 @@ export default defineConfig({
       $lib: path.resolve("./src/lib"),
       $assets: path.resolve("./src/assets"),
     },
+    // Vitest runs in Node, but Svelte components must resolve to their
+    // browser build so lifecycle functions like mount() are available.
+    conditions: process.env.VITEST ? ["browser"] : undefined,
   },
   test: {
     globals: true,
